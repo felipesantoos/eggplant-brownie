@@ -8,26 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var username: String = ""
-    @State private var password: String = ""
-    @State private var buttonText: String = "Login"
-    @State private var showGreeting: Bool = false
-    
+    @State private var foodName: String = ""
+    @State private var happinessLevel: String = ""
+
     var body: some View {
         VStack() {
-            if !showGreeting {
-                TextField("Enter your username", text: $username).padding(.horizontal, 16)
-                TextField("Enter your password", text: $password).padding(.horizontal, 16)
-                Button(buttonText) {
-                    showGreeting.toggle()
-                    buttonText = "Logout"
-                }
-            } else {
-                Text("Hello, \(username)!")
-                Button(buttonText) {
-                    showGreeting.toggle()
-                    buttonText = "Login"
-                }
+            HStack(alignment: .center, spacing: 8.0) {
+                Text("Food name:")
+                TextField("Ex.: apple", text: $foodName)
+            }
+            .padding(.horizontal, 32.0)
+            HStack(alignment: .center, spacing: 8.0) {
+                Text("Happiness level:")
+                TextField("1 (sad) - 5 (very happy)", text: $happinessLevel)
+            }
+            .padding(.horizontal, 32.0)
+            .keyboardType(.numberPad)
+            Button("Submit evaluation") {
+                print("Evaluation sended!")
             }
         }
     }
