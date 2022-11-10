@@ -20,15 +20,23 @@ struct ContentView: View {
             .padding(.horizontal, 32.0)
             HStack(alignment: .center, spacing: 8.0) {
                 Text("Happiness level:")
-                TextField("1 (sad) - 5 (very happy)", text: $happinessLevel)
+                TextField(
+                    "1 (sad) - 5 (very happy)",
+                    text: $happinessLevel
+                )
+                .keyboardType(.numberPad)
             }
             .padding(.horizontal, 32.0)
-            .keyboardType(.numberPad)
             Button("Submit evaluation") {
-                print("Evaluation sended!")
+                add()
             }
+            .padding(.all, 8.0)
         }
     }
+}
+
+func add() {
+    print("Hello, World!")
 }
 
 struct ContentView_Previews: PreviewProvider {
