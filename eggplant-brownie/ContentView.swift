@@ -33,10 +33,10 @@ struct ContentView: View {
             .padding(.all, 8.0)
         }
     }
-}
-
-func add() {
-    print("Hello, World!")
+    
+    func add() {
+        print("I ate \(foodName) and the score that I did was \(happinessLevel)!")
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
